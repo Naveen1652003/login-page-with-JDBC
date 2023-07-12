@@ -11,5 +11,13 @@ public class SelectQuery {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection com= DriverManager.getConnection(URL,Username,password);
         System.out.println("Connection Object Created");
+        Statement s=con.createStatement();
+        ResultSet rs=s.executeQuery("select * from branch");
+
+        while(rs.next())
+        {
+            System.out.println(rs.getInt("b_id")+" "+rs.getString(2)+" "+rs.getString(3));
+        }
+
     }
 }
